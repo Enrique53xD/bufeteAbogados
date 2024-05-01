@@ -1,4 +1,3 @@
-const { default: firebase } = require("firebase/compat/app");
 
 const firebaseConfig = {
   apiKey: "AIzaSyBNTQjo2wd7_sNU8b_W2TS-bV-bfwKV8Nw",
