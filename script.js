@@ -21,7 +21,7 @@ const analytics = getAnalytics(app);
 const db = getDatabase(app);
 
 // Create a reference to the location you want to write to
-const dbRef = ref(db, 'default/clientes/0');
+const dbRef = ref(db, 'Clientes/0');
 
 // Write the data
 set(dbRef, {name: 'value'}).then(() => {
