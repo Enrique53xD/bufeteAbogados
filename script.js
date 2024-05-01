@@ -11,6 +11,10 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+window.onload = function() {
+  displayData();
+};
+
 const contactFormDB = firebase.database().ref('contactForm')
 
 document.getElementById('contactForm').addEventListener('submit', submitForm);
@@ -40,3 +44,80 @@ const saveMessages = (name, emailid, msgContent) => {
     msgContent: msgContent
   })
 };
+
+function readData() {
+  contactFormDB.on('value', function(snapshot) {
+    var data = snapshot.val();
+    var keys = Object.keys(data);
+    console.log(data[keys[0]].emailid);
+  });
+}
+
+function displayData() {
+  searchValue(contactFormDB, document.getElementById('nameInput').value).then(info => {
+    var nameList = document.getElementById('nameList');
+    nameList.innerHTML = ''; // Clear the list
+
+    info.forEach(data => {
+      var listItem = document.createElement('li');
+      listItem.textContent = data.name + ' - ' + data.emailid + ' - ' + data.key;
+      nameList.appendChild(listItem);
+    });
+  }).catch(error => {
+    console.error('Failed to get data:', error);
+  });
+}
+function searchValue(db, id) {
+  return new Promise((resolve, reject) => {
+    db.on('value', function(snapshot) {
+      var data = snapshot.val();
+      var keys = Object.keys(data);
+
+      var info = [];
+
+      keys.forEach(key => {
+        if (data[key].name.toLowerCase().includes(id.toLowerCase())) {
+          data[key].key = key; // Add the key as a property
+          info.push(data[key]);
+          
+        }
+      });
+      
+      resolve(info);
+    }, reject);
+  });
+}
+
+function updateValue() {
+  return new Promise((resolve, reject) => {
+    contactFormDB.on('value', function(snapshot) {
+      var data = snapshot.val();
+      var keys = Object.keys(data);
+
+      var info = [];
+
+      keys.forEach(key => {
+        if (data[key].name.toLowerCase().includes(document.getElementById('idInput').value.toLowerCase())) {
+          updateValueByName(contactFormDB, key, { emailid: document.getElementById('emailInput').value });
+        }
+      });
+      
+      resolve(info);
+    }, reject);
+  });
+}
+
+function updateValueByName(db, name, newValue) {
+  searchKeyByName(db, name).then(key => {
+    var dbRef = db.ref(key);
+    dbRef.update(newValue).then(() => {
+      console.log('Data updated successfully');
+    }).catch((error) => {
+      console.error('Failed to update data:', error);
+    });
+  }).catch(error => {
+    console.error('Failed to find name:', error);
+  });
+}
+
+

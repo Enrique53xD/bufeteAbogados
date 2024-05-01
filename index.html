@@ -10,8 +10,10 @@
 </head>
 
 <body>
+
+
     <div class="container">
-        <form action="" id="contactForm">
+        <form id="contactForm">
             <div class="alert">Your message sent</div>
 
             <div class="inputBox">
@@ -32,6 +34,37 @@
         </form>
     </div>
 
+    <br>
+    <div class="container">
+        <form id="nameForm">
+            <div class="inputBox">
+                <input type="text" id="nameInput" placeholder="Enter a name" oninput="displayData()" />
+            </div>
+
+         
+            <div class="inputBox">
+                <ul id="nameList"></ul>
+            </div>
+
+        </form>
+    </div>
+
+    <br>
+    <div class="container">
+        <form id="emailForm">
+            <div class="inputBox">
+                <input type="text" id="idInput" placeholder="Enter an ID" />
+            </div>
+
+            <div class="inputBox">
+                <input type="email" id="newEmailInput" placeholder="Enter a new email" />
+            </div>
+
+            <div class="inputBox">
+                <button type="button" onclick="updateValue()">Update Email</button>
+            </div>
+        </form>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
     <script src="./script.js"></script>
 </body>
