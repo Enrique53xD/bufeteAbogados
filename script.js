@@ -1,21 +1,31 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getDatabase, ref, set } from "firebase/database"; // Import the necessary functions for database operations
 
 // Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBfxzpGTEUAZO4B1_ZqH-tJLb5a0-k5m8w",
-  authDomain: "bufeteabogados-680b8.firebaseapp.com",
-  projectId: "bufeteabogados-680b8",
-  storageBucket: "bufeteabogados-680b8.appspot.com",
-  messagingSenderId: "329647614547",
-  appId: "1:329647614547:web:cb03406aa34f66f19bb4a6",
-  measurementId: "G-VSENH4EXCX"
+  apiKey: "AIzaSyCG1Gw4TMZFiPUCjw2Fdifpz9PYt65iNGQ",
+  authDomain: "abogados-d3805.firebaseapp.com",
+  projectId: "abogados-d3805",
+  storageBucket: "abogados-d3805.appspot.com",
+  messagingSenderId: "761918186682",
+  appId: "1:761918186682:web:53503914902036a07cce83",
+  measurementId: "G-P1D4CW0P4R"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
+// Get a reference to the database service
+const db = getDatabase(app);
+
+// Create a reference to the location you want to write to
+const dbRef = ref(db, 'default/clientes/0');
+
+// Write the data
+set(dbRef, {name: 'value'}).then(() => {
+  console.log('Data written successfully');
+}).catch((error) => {
+  console.error('Failed to write data:', error);
+});
