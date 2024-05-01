@@ -18,14 +18,25 @@ document.getElementById('contactForm').addEventListener('submit', submitForm);
 function submitForm(e) {
   e.preventDefault();
 
-  var name = getElementVal('name');
-  var emailid = getElementVal('emailid');
-  var msgContent = getElementVal('msgContent');
+  var name = document.getElementById('name').value;
+  var emailid = document.getElementById('emailid').value;
+  var msgContent = document.getElementById('msgContent').value;
 
-  console.log(name, emailid, msgContent);
+  saveMessages(name, emailid, msgContent);
 
+  document.querySelector('.alert').style.display = 'block';
+  document.getElementById('contactForm').reset();
+
+  setTimeout(function() {
+    document.querySelector('.alert').style.display = 'none';
+  }, 3000);
 }
 
-const getElementVal = (id) => { 
-  document.getElementById(id).value; 
-}
+const saveMessages = (name, emailid, msgContent) => {
+  var newContactForm = contactFormDB.push();
+  newContactForm.set({
+    name: name,
+    emailid: emailid,
+    msgContent: msgContent
+  })
+};
