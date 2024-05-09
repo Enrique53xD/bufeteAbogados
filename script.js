@@ -1,3 +1,4 @@
+console.log("Pagina Iniciada")
 
 const firebaseConfig = {
   apiKey: "AIzaSyBNTQjo2wd7_sNU8b_W2TS-bV-bfwKV8Nw",
@@ -13,7 +14,7 @@ firebase.initializeApp(firebaseConfig);
 
 
 
-
+console.log("Base Iniciada")
 
 
 
