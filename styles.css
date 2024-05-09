@@ -4,7 +4,25 @@
     box-sizing: border-box;
 }
 
+h1 {
+    text-align: center;
+    padding-top: 5%;
+    color: #fff;
+    padding-bottom: 5%;
+}
 
+a {
+    text-decoration: none;
+    color: aquamarine;
+    text-align: center;
+    padding-top: 10%;
+}
+
+h2 {
+    text-align: center;
+    color: #fff;
+    padding-bottom: 2%;
+}
 
 body {
     height: 100vh;
@@ -78,8 +96,8 @@ th {
 }
 
 button {
-    display: block;
-    margin: 20px auto;
+
+    width: 30%;
     padding: 10px 20px;
     border: none;
     outline: none;
@@ -91,6 +109,8 @@ button {
     cursor: pointer;
     border-radius: 5px;
     transition: all 0.3s ease;
+    margin-left: 13px;
+    overflow: hidden;
 }
 
 button:hover{
@@ -99,13 +119,23 @@ button:hover{
 }
 
 
-
-h1 {
-    text-align: center;
-    padding-top: 10%;
-    color: #fff;
-    padding-bottom: 2%;
+.add {
+    width: 20%;
+    padding: 4px 10px;
+    border: none;
+    outline: none;
+    background: rgb(0, 119, 255);
+    color: #FFF;
+    font-family: 'Arial Rounded MT Bold', Arial, sans-serif; /* Updated this line */
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    margin-left: 13px;
+    overflow: hidden;
 }
+
 
 form {
     display: flex;
@@ -129,6 +159,8 @@ form input[type="text"], form input[type="tel"], form input[type="number"]{
     width: 100%;
 }
 
+
+
 form input[type="submit"] {
     display: block;
     padding: 10px 20px;
@@ -147,4 +179,26 @@ form input[type="submit"] {
 form input[type="submit"]:hover {
     background: rgb(0, 17, 255);
     transition: all 0.3s ease;
+}
+
+form select {
+    padding: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #666;
+    box-sizing: border-box;
+    width: 75%;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 20px;
+
+
+}
+
+form select:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
 }

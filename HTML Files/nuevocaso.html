@@ -10,27 +10,42 @@
 </head>
 
 <body>
-    <h1 id="tipo">Nuevo Caso</h1>
+    <h1><a href="/index.html">Bufete de Abogados el Gato Feliz</a></h1>
+    <h2 id="tipo">Nuevo Caso</h2>
     <div class="main">
         <form id="casoForm">
-            <label for="caso">Procurador</label>
-            <input type="text" list="procuradores" id="caso" name="caso" class="caso" required>
-            <datalist id="procuradores">
-                <option value="Procurador 1">
-                <option value="Procurador 2">
-                <option value="Procurador 3">
-            </datalist>
+            <label for="procuradorN">Procurador</label>
+            <div class="select-container">
+                
+                <select id="procuradorN" name="procuradorN" class="procuradorN" required>
+                    <option value="">Select a client</option>
+                    <option value="client1">Client 1</option>
+                    <option value="client2">Client 2</option>
+                    <option value="client3">Client 3</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <a href="nuevoprocurador.html">
+                    <button type="button" class="add">+</button>
+                </a>
+            </div>
 
             <label for="nombre">Asunto</label>
             <input type="text" id="nombre" name="nombre" class="nombre" required>
 
-            <label for="cliente">Cliente</label>
-            <input type="text" list="clientes" id="cliente" name="cliente" class="cliente" required>
-            <datalist id="clientes">
-                <option value="Cliente 1">
-                <option value="Cliente 2">
-                <option value="Cliente 3">
-            </datalist>
+            <label for="clienteN">Cliente</label>
+            <div class="select-container">
+                
+                <select id="clienteN" name="clienteN" class="clienteN" required>
+                    <option value="">Select a client</option>
+                    <option value="client1">Client 1</option>
+                    <option value="client2">Client 2</option>
+                    <option value="client3">Client 3</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <a href="cliente.html">
+                    <button type="button" class="add">+</button>
+                </a>
+            </div>
 
             <input type="submit" value="Submit">
         </form>

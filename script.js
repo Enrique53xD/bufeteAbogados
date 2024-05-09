@@ -15,17 +15,25 @@ firebase.initializeApp(firebaseConfig);
 
 
 
+
+
+const clientesDB = firebase.database().ref('clientes')
+const procuradorDB = firebase.database().ref('procuradores')
+const casosDB = firebase.database().ref('casos')
+var clienteSelect
+var procuradorSelect
+
 if (document.getElementById('tipo').innerText === 'Nuevo Caso') {
   document.getElementById('casoForm').addEventListener('submit', nuevoCaso);
+  clienteSelect = document.getElementById('clienteN');
+  procuradorSelect = document.getElementById('procuradorN');
+  populateClientesDropdown();
+  populateProcuradoresDropdown();
 } else if (document.getElementById('tipo').innerText === 'Nuevo Cliente') {
   document.getElementById('clienteForm').addEventListener('submit', nuevoCliente);
 } else if (document.getElementById('tipo').innerText === 'Nuevo Procurador') {
   document.getElementById('procuradorForm').addEventListener('submit', nuevoProcurador);
 }
-
-const clientesDB = firebase.database().ref('clientes')
-const procuradorDB = firebase.database().ref('procuradores')
-const casosDB = firebase.database().ref('casos')
 
 // #region Clientes
 
@@ -105,17 +113,26 @@ function readProcurador() {
 
 // #region Casos
 
-function nuevoCaso(e) {
+async function nuevoCaso(e) {
   e.preventDefault();
 
-  const asunto = "Robo";
-  const noExpediente = "a"; //document.getElementById('nameInput').value;
+  const asunto = document.getElementById('nombre').value;
+
+  const cantidadC = await cantidadCasos()
+  const noExpediente = cantidadC + 1;
+
   const estado = "Pendiente";
-  const date = new Date().toLocaleDateString('en-US', { timeZone: 'America/Chicago' }).split('/');
-  const fechaInicio = `${date[1]}-${date[0]}-${date[2]}`;
+
+  const date = new Date().toLocaleDateString().split('/');
+  const fechaInicio = `${date[0]}-${date[1]}-${date[2]}`;
+
   const fechaFin = "";
-  const idCliente = "b";
-  const idProcurador = "c";
+  
+  const idCliente = document.getElementById('clienteN').value;
+  
+  const procurador = document.getElementById('procuradorN').value;
+  
+  const idProcurador = procurador;
 
   saveCaso(asunto, noExpediente, estado, fechaInicio, fechaFin, idCliente, idProcurador);
 
@@ -123,6 +140,66 @@ function nuevoCaso(e) {
 
   document.getElementById('casoForm').reset();
 
+}
+
+function populateProcuradoresDropdown() {
+  // Clear the dropdown
+  procuradorSelect.innerHTML = '';
+
+  // Add a default option
+  const defaultOption = document.createElement('option');
+  defaultOption.value = '';
+  defaultOption.text = 'Selecciona un Procurador';
+  procuradorSelect.add(defaultOption);
+
+  // Read from the database
+  procuradorDB.on('value', function(snapshot) {
+    const data = snapshot.val();
+    const keys = Object.keys(data);
+
+    // Loop through the data and add an option for each client
+    keys.forEach(key => {
+      const option = document.createElement('option');
+      option.value = data[key].colegiadoProcurador; // Assuming nitCliente is a unique identifier for the client
+      option.text = data[key].nombreProcurador; // Display the client's name in the dropdown
+      procuradorSelect.add(option);
+    });
+  });
+}
+
+function populateClientesDropdown() {
+  // Clear the dropdown
+  clienteSelect.innerHTML = '';
+
+  // Add a default option
+  const defaultOption = document.createElement('option');
+  defaultOption.value = '';
+  defaultOption.text = 'Selecciona un Cliente';
+  clienteSelect.add(defaultOption);
+
+  // Read from the database
+  clientesDB.on('value', function(snapshot) {
+    const data = snapshot.val();
+    const keys = Object.keys(data);
+
+    // Loop through the data and add an option for each client
+    keys.forEach(key => {
+      const option = document.createElement('option');
+      option.value = data[key].nitCliente; // Assuming nitCliente is a unique identifier for the client
+      option.text = data[key].nombreCliente; // Display the client's name in the dropdown
+      clienteSelect.add(option);
+    });
+  });
+}
+
+function cantidadCasos() {
+  return new Promise((resolve, reject) => {
+    casosDB.on('value', function (snapshot) {
+      const data = snapshot.val();
+      const keys = Object.keys(data);
+      resolve(keys.length);
+    });
+  })
 }
 
 function saveCaso(asunto, noExpediente, estado, fechaInicio, fechaFin, idCliente, idProcurador) {
@@ -148,14 +225,12 @@ function readCasos() {
 
 // #endregion
 
-// Assuming you're using Firebase
-
+// #region Index
 if (document.getElementById('tipo').innerText === 'Listado de Casos') {
   displayMain()
 }
 
 async function displayMain() {
-console.log("displayingData")
 
   casosDB.on('value', async function (snapshot) {
     const data = snapshot.val();
@@ -166,7 +241,7 @@ console.log("displayingData")
     // Clear the table body
     tableBody.innerHTML = '';
 
-    for (let key of keys)  {
+    for (let key of keys) {
       const row = tableBody.insertRow();
 
       const casoCell = row.insertCell();
@@ -192,27 +267,29 @@ console.log("displayingData")
 
 function getCliente(id) {
   return new Promise((resolve, reject) => {
-  clientesDB.on('value', function (snapshot) {
-    const data = snapshot.val();
-    const keys = Object.keys(data);
+    clientesDB.on('value', function (snapshot) {
+      const data = snapshot.val();
+      const keys = Object.keys(data);
 
-    var nombre = "No Encontrado"
+      var nombre = "No Encontrado"
 
-    keys.some(function (key) {
+      keys.some(function (key) {
 
-      if (data[key].nitCliente === String(id)) {
-        nombre = data[key].nombreCliente;
-        return true;
-      }
+        if (data[key].nitCliente === String(id)) {
+          nombre = data[key].nombreCliente;
+          return true;
+        }
+      });
+
+      resolve(nombre);
+
     });
 
-    resolve(nombre);
 
-    });
-
-    
   });
 }
+
+// #endregion
 
 /*
 function displayData() {
