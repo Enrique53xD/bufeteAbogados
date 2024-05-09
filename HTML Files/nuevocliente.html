@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Cliente</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <h1 id="tipo">Nuevo Cliente</h1>
+    <div class="main">
+        <form id="clienteForm">
+            <label for="nombreC">Nombre del Cliente</label>
+            <input type="text" id="nombreC" name="nombreC" class="nombreC" required>
+
+            <label for="numeroC">Numero de Telefono</label>
+            <input type="tel" id="numeroC" name="numeroC" class="numeroC" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            type = "number"
+            minlength="8" maxlength = "8" required>
+
+            <label for="nitC">NIT</label>
+            <input type="text" pattern="\d*" id="nitC" name="nitC" class="nitC" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            type = "number"
+            minlength="9" maxlength = "9" required>
+
+            <label for="direC">Direccion</label>
+            <input type="text" id="direC" name="direC" class="direC" required>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="/script.js"></script>
+</body>
+
+</html>

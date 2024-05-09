@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Procurador</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <h1 id="tipo">Nuevo Procurador</h1>
+    <div class="main">
+        <form id="procuradorForm">
+            <label for="nombreP">Nombre del Procurador</label>
+            <input type="text" id="nombreP" name="nombreP" class="nombreP" required>
+
+            <label for="numeroP">Numero de Telefono</label>
+            <input type="tel" id="numeroP" name="numeroP" class="numeroP" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            type = "number"
+            minlength="8" maxlength = "8" required>
+
+            <label for="colegP">Colegiado No.</label>
+            <input type="number" id="colegP" name="colegP" class="colegP" required>
+
+            <label for="especP">Especialidad</label>
+            <input type="text" id="especP" name="especP" class="especP" required>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="/script.js"></script>
+</body>
+
+</html>

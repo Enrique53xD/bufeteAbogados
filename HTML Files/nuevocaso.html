@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Caso</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <h1 id="tipo">Nuevo Caso</h1>
+    <div class="main">
+        <form id="casoForm">
+            <label for="caso">Procurador</label>
+            <input type="text" list="procuradores" id="caso" name="caso" class="caso" required>
+            <datalist id="procuradores">
+                <option value="Procurador 1">
+                <option value="Procurador 2">
+                <option value="Procurador 3">
+            </datalist>
+
+            <label for="nombre">Asunto</label>
+            <input type="text" id="nombre" name="nombre" class="nombre" required>
+
+            <label for="cliente">Cliente</label>
+            <input type="text" list="clientes" id="cliente" name="cliente" class="cliente" required>
+            <datalist id="clientes">
+                <option value="Cliente 1">
+                <option value="Cliente 2">
+                <option value="Cliente 3">
+            </datalist>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="/script.js"></script>
+</body>
+
+</html>

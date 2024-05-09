@@ -5,68 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Messages | Firebase</title>
+    <title>Listado de Casos</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
+    <h1 id="tipo">Listado de Casos</h1>
+    <div class="main">
+        
+        <table>
+            <thead>
+                <tr>
+                    <th class="caso">Caso No.</th>
+                    <th class="nombre">Asunto</th>
+                    <th class="cliente">Cliente</th>
+                    <th class="estado">Estado</th>
+                </tr>
+            </thead>
+        </table>
+        <div class="scrollable">
+            <table id="data-table">
+                <tbody>
 
-
-    <div class="container">
-        <form id="contactForm">
-            <div class="alert">Your message sent</div>
-
-            <div class="inputBox">
-                <input type="text" id="name" placeholder="Your name...." />
-            </div>
-
-            <div class="inputBox">
-                <input type="email" id="emailid" placeholder="Your Email....." />
-            </div>
-
-            <div class="inputBox">
-                <textarea id="msgContent" cols="30" rows="10" placeholder="Message"></textarea>
-            </div>
-
-            <div class="inputBox">
-                <button type="submit">Submit</button>
-            </div>
-        </form>
-    </div>
-
-    <br>
-    <div class="container">
-        <form id="nameForm">
-            <div class="inputBox">
-                <input type="text" id="nameInput" placeholder="Enter a name" oninput="displayData()" />
-            </div>
-
-         
-            <div class="inputBox">
-                <ul id="nameList"></ul>
-            </div>
-
-        </form>
-    </div>
-
-    <br>
-    <div class="container">
-        <form id="emailForm">
-            <div class="inputBox">
-                <input type="text" id="idInput" placeholder="Enter an ID" />
-            </div>
-
-            <div class="inputBox">
-                <input type="email" id="newEmailInput" placeholder="Enter a new email" />
-            </div>
-
-            <div class="inputBox">
-                <button type="button" onclick="updateValue()">Update Email</button>
-            </div>
-        </form>
+                </tbody>
+            </table>
+        </div>
+        <button onclick="location.href='HTML Files/nuevocaso.html'">Nuevo Caso</button>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
-    <script src="./script.js"></script>
+    <script src="/script.js"></script>
 </body>
 
 </html>
