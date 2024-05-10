@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Caso</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <h1><a href="/index.html">Bufete de Abogados el Gato Feliz</a></h1>
+    <h2 id="tipo">Detalles del Caso</h2>
+    <div class="main">
+        
+        
+        
+    
+        <form>
+            <div class="doble">
+                <h3 class="codigoInfo" id="codigoInfo">Caso No. </h3>
+                <select id="estadoInfo" name="estadoInfo" class="estadoInfo" required>
+                    <option value="">Cargando...</option>
+                    <option value="client1">Client 1</option>
+                    <option value="client2">Client 2</option>
+                    <option value="client3">Client 3</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <div class="doble">
+                <input type="date" class="dob" id="fechaInicioInfo" value="2024-09-09" readonly>
+                <input type="date" class="dob" id="fechaInicioInfo">
+            </div>
+            <div class="doble">
+                <select id="procuradorInfo" name="procuradorInfo" class="dob" required>
+                    <option value="">Procurador</option>
+                    <option value="client1">Client 1</option>
+                    <option value="client2">Client 2</option>
+                    <option value="client3">Client 3</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <select id="clienteInfo" name="clienteInfo" class="dob" required>
+                    <option value="">Cliente</option>
+                    <option value="client1">Client 1</option>
+                    <option value="client2">Client 2</option>
+                    <option value="client3">Client 3</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <input type="text" id="asuntoInfo" placeholder="Asunto">
+
+            <button>Actualizar</button>
+        </form>
+        
+        
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>

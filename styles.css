@@ -36,7 +36,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     height: 60%;
     width: 90%;
     max-width: 800px; /* Adjust as needed */
@@ -149,7 +148,7 @@ form label {
     font-size: 1.2em;
 }
 
-form input[type="text"], form input[type="tel"], form input[type="number"]{
+form input[type="text"], form input[type="tel"], form input[type="number"], form input[type="date"]{
     margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #555;
@@ -201,4 +200,27 @@ form select:focus {
     outline: 0;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+
+.doble {
+    display: flex;
+    flex-direction: row;
+}
+
+.dob {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.codigoInfo {
+    margin-top: 8%;
+    text-align: left;
+}
+
+.estadoInfo {
+    margin-top: 5%;
+    margin-left: auto;
+    font-size: 12px;
+    height: 45% !important;
+    width: 30% !important;
 }
