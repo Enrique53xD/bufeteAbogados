@@ -58,4 +58,4 @@
 
 Esta es una página web como proyecto para la universidad hecho por Saúl González. 🎓
 
-(Pongame nota completa plis, le heche muchas ganas 🥺)
+(Pongame nota completa plis, le eché muchas ganas 🥺)
