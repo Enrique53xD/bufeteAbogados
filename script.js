@@ -447,7 +447,7 @@ function updateInfo(e) {
     });
   });
 
-  //window.open("./index.html", "_self")
+  window.open("./index.html", "_self")
 }
 
 
