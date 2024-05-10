@@ -11,7 +11,7 @@
 
 <body>
     <h1><a href="./index.html">Bufete de Abogados el Gato Feliz</a></h1>
-    <h2 id="tipo">Nuevo Procurador</h2>
+    <h2 id="tipo" class="tipo">Nuevo Procurador</h2>
     <div class="main">
         <form id="procuradorForm">
             <label for="nombreP">Nombre del Procurador</label>
@@ -19,8 +19,7 @@
 
             <label for="numeroP">Numero de Telefono</label>
             <input type="tel" id="numeroP" name="numeroP" class="numeroP" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-            type = "number"
-            minlength="8" maxlength = "8" required>
+            pattern="\d*" minlength="8" maxlength = "8" required>
 
             <label for="colegP">Colegiado No.</label>
             <input type="number" id="colegP" name="colegP" class="colegP" required>
@@ -28,7 +27,7 @@
             <label for="especP">Especialidad</label>
             <input type="text" id="especP" name="especP" class="especP" required>
 
-            <input type="submit" value="Submit">
+            <input type="submit" value="Crear">
         </form>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>

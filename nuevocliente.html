@@ -11,26 +11,24 @@
 
 <body>
     <h1><a href="/index.html">Bufete de Abogados el Gato Feliz</a></h1>
-    <h2 id="tipo">Nuevo Cliente</h2>
+    <h2 id="tipo" class="tipo">Nuevo Cliente</h2>
     <div class="main">
         <form id="clienteForm">
             <label for="nombreC">Nombre del Cliente</label>
             <input type="text" id="nombreC" name="nombreC" class="nombreC" required>
 
-            <label for="numeroC">Numer.o de Telefono</label>
-            <input type="tel" id="numeroC" name="numeroC" class="numeroC" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-            type = "number"
-            minlength="8" maxlength = "8" required>
+            <label for="numeroC">Numero de Telefono</label>
+            <input type="tel" id="numeroC" name="numeroC" class="numeroC" pattern="\d*" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+minlength="8" maxlength = "8" required>
 
             <label for="nitC">NIT</label>
             <input type="text" pattern="\d*" id="nitC" name="nitC" class="nitC" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-            type = "number"
-            minlength="9" maxlength = "9" required>
+            pattern="\d*" minlength="9" maxlength = "9" required>
 
             <label for="direC">Direccion</label>
             <input type="text" id="direC" name="direC" class="direC" required>
 
-            <input type="submit" value="Submit">
+            <input type="submit" value="Crear">
         </form>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>

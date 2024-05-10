@@ -11,7 +11,7 @@
 
 <body>
     <h1><a href="/index.html">Bufete de Abogados el Gato Feliz</a></h1>
-    <h2 id="tipo">Listado de Casos</h2>
+    <h2 id="tipo" class="tipo">Listado de Casos</h2>
     <div class="main">
         
         <table>
@@ -32,8 +32,61 @@
             </table>
         </div>
         
-        <button onclick="location.href='./nuevocaso.html'">Nuevo Caso</button>
+        <button onclick="location.href='./nuevocaso.html'" class="largote" id="largote">Nuevo Caso</button>
     </div>
+
+    <h2 id="tipo" class="tipo">Listado de Clientes</h2>
+    <div class="main">
+        
+        <table>
+            <thead>
+                <tr>
+                    <th class="nitCIndex">Nit</th>
+                    <th class="nombreCIndex">Nombre</th>
+                    <th class="numeroCIndex">Telefono</th>
+                    <th class="direCIndex">Direccion</th>
+                    <th class="eliminar">X</th>
+                </tr>
+            </thead>
+        </table>
+
+        <div class="scrollable">
+            <table id="data-tableClientes">
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        
+        <button onclick="location.href='./nuevocliente.html'" class="largote" id="largote">Nuevo Cliente</button>
+    </div>
+
+    <h2 id="tipo" class="tipo">Listado de Procuradores</h2>
+    <div class="main">
+        
+        <table>
+            <thead>
+                <tr>
+                    <th class="colegPIndex">Colegiado</th>
+                    <th class="nombrePIndex">Nombre</th>
+                    <th class="numeroPIndex">Telefono</th>
+                    <th class="especializacionPIndex">Especializacion</th>
+                    <th class="eliminar">X</th>
+                </tr>
+            </thead>
+        </table>
+
+        <div class="scrollable">
+            <table id="data-tableProcuradores">
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        
+        <button onclick="location.href='./nuevoprocurador.html'" class="largote" id="largote">Nuevo Procurador</button>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
     <script src="./script.js"></script>
 </body>

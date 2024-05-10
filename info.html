@@ -17,7 +17,7 @@
         
         
     
-        <form>
+        <form id="infoForm">
             <div class="doble">
                 <h3 class="codigoInfo" id="codigoInfo">Caso No. </h3>
                 <select id="estadoInfo" name="estadoInfo" class="estadoInfo" required>
@@ -29,22 +29,17 @@
                 </select>
             </div>
             <div class="doble">
-                <input type="date" class="dob" id="fechaInicioInfo" value="2024-09-09" readonly>
-                <input type="date" class="dob" id="fechaInicioInfo">
+                <input type="date" class="dob" id="fechaInicioInfo" value="" readonly>
+                <input type="date" class="dob" id="fechaFinInfo">
             </div>
             <div class="doble">
                 <select id="procuradorInfo" name="procuradorInfo" class="dob" required>
-                    <option value="">Procurador</option>
-                    <option value="client1">Client 1</option>
-                    <option value="client2">Client 2</option>
-                    <option value="client3">Client 3</option>
+                    <option value="">Cargando...</option>
                     <!-- Add more options as needed -->
                 </select>
                 <select id="clienteInfo" name="clienteInfo" class="dob" required>
-                    <option value="">Cliente</option>
-                    <option value="client1">Client 1</option>
-                    <option value="client2">Client 2</option>
-                    <option value="client3">Client 3</option>
+                    <option value="">Cargando...</option>
+
                     <!-- Add more options as needed -->
                 </select>
             </div>
