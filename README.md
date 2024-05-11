@@ -64,6 +64,6 @@
 
 ## Info
 
-Esta es una página web como proyecto para la universidad hecho por Saúl González. 🎓
+Esta es una página web como proyecto para la universidad hecho por Saúl González y Carlos Ortiz. 🎓
 
 (Pongame nota completa plis, le eché muchas ganas 🥺)
