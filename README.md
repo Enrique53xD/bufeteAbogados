@@ -1,10 +1,10 @@
-<img align='right' src="https://media.tenor.com/lCKwsD2OW1kAAAAj/happy-cat-happy-happy-cat.gif" width="200">
+<img align='right' src="https://media.tenor.com/lCKwsD2OW1kAAAAj/happy-cat-happy-happy-cat.gif" width="20%">
 
 # El Gato Feliz - Sistema de Gestión para Abogados
 
 ¡Bienvenido/a al sistema de gestión para abogados "El Gato Feliz"! 😺 Este sistema te permite administrar casos legales, clientes y procuradores de manera eficiente. A continuación, se detallan las principales funcionalidades:
 
-
+<img src="https://github.com/Enrique53xD/bufeteAbogados/blob/main/Screenshot%202024-05-10%20at%2022.01.02.png" width="70%">
 
 ## Funcionalidades
 
