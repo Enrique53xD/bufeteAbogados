@@ -51,7 +51,7 @@ if (document.getElementById('tipo').innerText === 'Nuevo Caso') {
 
 // #region Clientes
 
-function nuevoCliente(e) {
+async function nuevoCliente(e) {
   e.preventDefault();
 
   const nombreCliente = document.getElementById('nombreC').value;
@@ -59,13 +59,32 @@ function nuevoCliente(e) {
   const nitCliente = document.getElementById('nitC').value;
   const direccionCliente = document.getElementById('direC').value;
 
-  saveCliente(nombreCliente, telefonoCliente, nitCliente, direccionCliente);
+  var already = false;
+  
+  clientesDB.once('value', function (snapshot) {
+    const data = snapshot.val();
+    const keys = Object.keys(data);
+    
+    for (let i = 0; i < keys.length; i++) {
+      if (String(data[keys[i]].nitCliente) === nitCliente) {
+          already = true;
+          break; // exit the loop as soon as a match is found
+      }
+    }
 
-  readClientes();
-
-  document.getElementById('clienteForm').reset();
-
-  window.open("./index.html", "_self")
+    // Check if 'already' is true or false after checking all items in the database
+    if (already) {
+      console.log('tru')
+      alert('Cliente con este NIT ya existe.')
+      location.reload();
+    } else {
+      console.log('fols')
+      saveCliente(nombreCliente, telefonoCliente, nitCliente, direccionCliente);
+      readClientes();
+      document.getElementById('clienteForm').reset();
+      window.open("./index.html", "_self")
+    }
+  });
 }
 
 function saveCliente(nombreCliente, telefonoCliente, nitCliente, direccionCliente) {
@@ -98,13 +117,35 @@ function nuevoProcurador(e) {
   const colegiadoProcurador = document.getElementById('colegP').value;
   const especializacionProcurador = document.getElementById('especP').value;
 
-  saveProcurador(nombreProcurador, telefonoProcurador, colegiadoProcurador, especializacionProcurador);
 
-  readProcurador();
+  var already = false;
+  
+  procuradorDB.once('value', function (snapshot) {
+    const data = snapshot.val();
+    const keys = Object.keys(data);
+    
+    for (let i = 0; i < keys.length; i++) {
+      if (String(data[keys[i]].colegiadoProcurador) === colegiadoProcurador) {
+          already = true;
+          break; // exit the loop as soon as a match is found
+      }
+    }
 
-  document.getElementById('procuradorForm').reset();
+    // Check if 'already' is true or false after checking all items in the database
+    if (already) {
+      console.log('tru')
+      alert('Procurador con ese numero de colegiado ya existe.')
+      location.reload();
+    } else {
+      console.log('fols')
+      saveProcurador(nombreProcurador, telefonoProcurador, colegiadoProcurador, especializacionProcurador);
+      readProcurador();
+      document.getElementById('procuradorForm').reset();
+      window.open("./index.html", "_self")
+    }
+  });
 
-  window.open("./index.html", "_self")
+
 }
 
 function saveProcurador(nombreProcurador, telefonoProcurador, colegiadoProcurador, especializacionProcurador) {
@@ -134,7 +175,7 @@ async function nuevoCaso(e) {
 
   const asunto = document.getElementById('nombre').value;
 
-  const cantidadC = await cantidadCasos()
+  const cantidadC = await cantidadesTabla(casosDB)
   const noExpediente = cantidadC + 1;
 
   const estado = "Pendiente";
@@ -221,15 +262,29 @@ function populateClientesDropdown() {
   });
 }
 
-function cantidadCasos() {
+function cantidadesTabla(db) {
   return new Promise((resolve, reject) => {
-    casosDB.on('value', function (snapshot) {
+    db.on('value', function (snapshot) {
       const data = snapshot.val();
       if (data === null) {
         resolve(0);
       } else {
         const keys = Object.keys(data);
         resolve(keys.length);
+      }
+    });
+  })
+}
+
+function keysTabla(db) {
+  return new Promise((resolve, reject) => {
+    db.on('value', function (snapshot) {
+      const data = snapshot.val();
+      if (data === null) {
+        resolve(0);
+      } else {
+        const keys = Object.keys(data);
+        resolve(keys);
       }
     });
   })
@@ -342,6 +397,7 @@ async function displayMain() {
       eliminarCell.textContent = 'X';
       eliminarCell.style.color = 'red';
       eliminarCell.style.fontWeight = 'bold';
+      eliminarCell.style.cursor = 'pointer'; 
       eliminarCell.addEventListener('click', function () {
         let confirmation = confirm("Estas seguro que quieres eliminar este item?");
         if (confirmation) {
@@ -384,6 +440,7 @@ async function displayMain() {
       eliminarCell.classList.add('eliminar');
       eliminarCell.textContent = 'X';
       eliminarCell.style.color = 'red'; // Add this line
+      eliminarCell.style.fontWeight = 'bold';
       eliminarCell.style.cursor = 'pointer'; 
       eliminarCell.addEventListener('click', function () {
         let confirmation = confirm("Estas seguro que quieres eliminar este item?");
