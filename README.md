@@ -19,6 +19,8 @@
    - Haz clic en el caso que deseas editar.
    - Modifica los campos necesarios, como estado, fecha de finalización, cliente, procurador asignado, etc.
    - Guarda los cambios y la información del caso se actualizará. 🔄
+  
+<img src="https://github.com/Enrique53xD/bufeteAbogados/blob/main/Screenshot%202024-05-10%20at%2022.01.15.png" width="70%">
 
 ### Clientes
 
@@ -32,6 +34,8 @@
    - Encuentra el cliente que deseas eliminar en la lista de clientes.
    - Presiona la letra "x" al lado del cliente.
    - El cliente será eliminado inmediatamente. ❌
+  
+<img src="https://github.com/Enrique53xD/bufeteAbogados/blob/main/Screenshot%202024-05-10%20at%2022.01.32.png" width="70%">
 
 ### Procuradores
 
@@ -45,6 +49,8 @@
    - Encuentra al procurador en la lista.
    - Presiona la letra "x" al lado del procurador.
    - El procurador será eliminado inmediatamente. ❌
+  
+<img src="https://github.com/Enrique53xD/bufeteAbogados/blob/main/Screenshot%202024-05-10%20at%2022.01.47.png" width="70%">
 
 ### Asignación de Clientes y Procuradores a Casos
 
@@ -53,6 +59,8 @@
 
 2. **Asignación de Procuradores**:
    - De manera similar, al crear o editar un caso, puedes asignar un procurador seleccionándolo de la lista de procuradores disponibles o crear uno nuevo con el boton ➕.
+  
+<img src="https://github.com/Enrique53xD/bufeteAbogados/blob/main/Screenshot%202024-05-10%20at%2022.11.36.png" width="70%">
 
 ## Info
 
