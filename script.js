@@ -35,13 +35,10 @@ if (document.getElementById('tipo').innerText === 'Nuevo Caso') {
   clienteSelect = document.getElementById('clienteInfo');
   procuradorSelect = document.getElementById('procuradorInfo');
   estadoSelect = document.getElementById('estadoInfo');
-  // Get the URL parameters
   const params = new URLSearchParams(window.location.search);
 
-  // Get the noExpediente parameter
   const noExpediente = params.get('noExpediente');
 
-  // Pass the noExpediente parameter to the populateDetalles function
   populateDetalles(noExpediente);
 } else if (document.getElementById('tipo').innerText === 'Nuevo Cliente') {
   document.getElementById('clienteForm').addEventListener('submit', nuevoCliente);
@@ -68,11 +65,10 @@ async function nuevoCliente(e) {
     for (let i = 0; i < keys.length; i++) {
       if (String(data[keys[i]].nitCliente) === nitCliente) {
           already = true;
-          break; // exit the loop as soon as a match is found
+          break; 
       }
     }
 
-    // Check if 'already' is true or false after checking all items in the database
     if (already) {
       console.log('tru')
       alert('Cliente con este NIT ya existe.')
@@ -127,11 +123,11 @@ function nuevoProcurador(e) {
     for (let i = 0; i < keys.length; i++) {
       if (String(data[keys[i]].colegiadoProcurador) === colegiadoProcurador) {
           already = true;
-          break; // exit the loop as soon as a match is found
+          break; 
       }
     }
 
-    // Check if 'already' is true or false after checking all items in the database
+   
     if (already) {
       console.log('tru')
       alert('Procurador con ese numero de colegiado ya existe.')
@@ -201,20 +197,20 @@ async function nuevoCaso(e) {
 }
 
 function populateProcuradoresDropdown() {
-  // Clear the dropdown
+
   procuradorSelect.innerHTML = '';
 
-  // Add a default option
+
   const defaultOption = document.createElement('option');
   defaultOption.value = '';
   defaultOption.text = 'Selecciona un Procurador';
   procuradorSelect.add(defaultOption);
 
-  // Read from the database
+
   procuradorDB.on('value', function (snapshot) {
     procuradorSelect.innerHTML = '';
 
-    // Add a default option
+
     const defaultOption = document.createElement('option');
     defaultOption.value = '';
     defaultOption.text = 'Selecciona un Procurador';
@@ -222,27 +218,26 @@ function populateProcuradoresDropdown() {
     const data = snapshot.val();
     const keys = Object.keys(data);
 
-    // Loop through the data and add an option for each client
+
     keys.forEach(key => {
       const option = document.createElement('option');
-      option.value = data[key].colegiadoProcurador; // Assuming nitCliente is a unique identifier for the client
-      option.text = data[key].nombreProcurador; // Display the client's name in the dropdown
+      option.value = data[key].colegiadoProcurador; 
+      option.text = data[key].nombreProcurador; 
       procuradorSelect.add(option);
     });
   });
 }
 
 function populateClientesDropdown() {
-  // Clear the dropdown
+  
   clienteSelect.innerHTML = '';
 
-  // Add a default option
   const defaultOption = document.createElement('option');
   defaultOption.value = '';
   defaultOption.text = 'Selecciona un Cliente';
   clienteSelect.add(defaultOption);
 
-  // Read from the database
+
   clientesDB.on('value', function (snapshot) {
     clienteSelect.innerHTML = '';
     const defaultOption = document.createElement('option');
@@ -252,11 +247,11 @@ function populateClientesDropdown() {
     const data = snapshot.val();
     const keys = Object.keys(data);
 
-    // Loop through the data and add an option for each client
+   
     keys.forEach(key => {
       const option = document.createElement('option');
-      option.value = data[key].nitCliente; // Assuming nitCliente is a unique identifier for the client
-      option.text = data[key].nombreCliente; // Display the client's name in the dropdown
+      option.value = data[key].nitCliente; 
+      option.text = data[key].nombreCliente; 
       clienteSelect.add(option);
     });
   });
@@ -327,7 +322,7 @@ async function displayMain() {
 
     const tableBody = document.getElementById('data-table').getElementsByTagName('tbody')[0];
 
-    // Clear the table body
+
     tableBody.innerHTML = '';
 
     for (let key of keys) {
@@ -340,16 +335,15 @@ async function displayMain() {
       const nombreCell = row.insertCell();
       nombreCell.classList.add('nombre');
 
-      // Create an anchor element
+
       const anchor = document.createElement('a');
 
-      // Set the href attribute to info.html with the parameter
+
       anchor.href = `info.html?noExpediente=${data[key].noExpediente}`;
 
-      // Set the text content
       anchor.textContent = data[key].asunto;
 
-      // Append the anchor to the cell
+
       nombreCell.appendChild(anchor);
 
       const clienteCell = row.insertCell();
@@ -370,7 +364,7 @@ async function displayMain() {
 
     const tableBody = document.getElementById('data-tableClientes').getElementsByTagName('tbody')[0];
 
-    // Clear the table body
+
     tableBody.innerHTML = '';
 
     for (let key of keys) {
@@ -414,7 +408,7 @@ async function displayMain() {
 
     const tableBody = document.getElementById('data-tableProcuradores').getElementsByTagName('tbody')[0];
 
-    // Clear the table body
+
     tableBody.innerHTML = '';
 
     for (let key of keys) {
@@ -439,7 +433,7 @@ async function displayMain() {
       const eliminarCell = row.insertCell();
       eliminarCell.classList.add('eliminar');
       eliminarCell.textContent = 'X';
-      eliminarCell.style.color = 'red'; // Add this line
+      eliminarCell.style.color = 'red'; 
       eliminarCell.style.fontWeight = 'bold';
       eliminarCell.style.cursor = 'pointer'; 
       eliminarCell.addEventListener('click', function () {
@@ -497,7 +491,7 @@ function updateInfo(e) {
 
   const params = new URLSearchParams(window.location.search);
 
-  // Get the noExpediente parameter
+
   const noExpediente = params.get('noExpediente')
 
   const asunto = document.getElementById('asuntoInfo').value;
@@ -557,10 +551,10 @@ function populateDetalles(id) {
 }
 
 function populateEstadoInfoDropdown(estado) {
-  // Clear the dropdown
+ 
   estadoSelect.innerHTML = '';
 
-  // Add a default option
+
   const option1 = document.createElement('option');
   option1.value = estado;
   option1.text = estado;
@@ -598,27 +592,27 @@ function populateEstadoInfoDropdown(estado) {
 }
 
 function populateProcuradoresInfoDropdown(id) {
-  // Clear the dropdown
+
   procuradorSelect.innerHTML = '';
 
-  // Add a default option
+
   const defaultOption = document.createElement('option');
   defaultOption.value = '';
   defaultOption.text = '---';
   procuradorSelect.add(defaultOption);
 
-  // Read from the database
+
   procuradorDB.on('value', function (snapshot) {
     const data = snapshot.val();
     const keys = Object.keys(data);
 
-    // Loop through the data and add an option for each client
+
     keys.forEach(key => {
 
       if (data[key].colegiadoProcurador === id) {
         procuradorSelect.innerHTML = '';
 
-        // Add a default option
+
         const defaultOption = document.createElement('option');
         defaultOption.value = data[key].colegiadoProcurador;
         defaultOption.text = data[key].nombreProcurador;
@@ -634,8 +628,8 @@ function populateProcuradoresInfoDropdown(id) {
       } else {
 
         const option = document.createElement('option');
-        option.value = data[key].colegiadoProcurador; // Assuming nitCliente is a unique identifier for the client
-        option.text = data[key].nombreProcurador; // Display the client's name in the dropdown
+        option.value = data[key].colegiadoProcurador; 
+        option.text = data[key].nombreProcurador; 
         procuradorSelect.add(option);
       }
     });
@@ -643,27 +637,27 @@ function populateProcuradoresInfoDropdown(id) {
 }
 
 function populateClientesInfoDropdown(id) {
-  // Clear the dropdown
+
   clienteSelect.innerHTML = '';
 
-  // Add a default option
+
   const defaultOption = document.createElement('option');
   defaultOption.value = '';
   defaultOption.text = '---';
   clienteSelect.add(defaultOption);
 
-  // Read from the database
+  
   clientesDB.on('value', function (snapshot) {
     const data = snapshot.val();
     const keys = Object.keys(data);
 
-    // Loop through the data and add an option for each client
+    
     keys.forEach(key => {
 
       if (data[key].nitCliente === id) {
         clienteSelect.innerHTML = '';
 
-        // Add a default option
+        
         const defaultOption = document.createElement('option');
         defaultOption.value = data[key].nitCliente;
         defaultOption.text = data[key].nombreCliente;
@@ -679,8 +673,8 @@ function populateClientesInfoDropdown(id) {
       } else {
 
         const option = document.createElement('option');
-        option.value = data[key].nitCliente; // Assuming nitCliente is a unique identifier for the client
-        option.text = data[key].nombreCliente; // Display the client's name in the dropdown
+        option.value = data[key].nitCliente; 
+        option.text = data[key].nombreCliente; 
         clienteSelect.add(option);
       }
     });
