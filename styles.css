@@ -4,32 +4,46 @@
     box-sizing: border-box;
 }
 
+
 h1 {
     text-align: center;
     padding-top: 5%;
-    color: #fff;
+    color: #F5F5F5;
+    font-size: xxx-large;
 
 }
 
 a {
     text-decoration: none;
-    color: aquamarine;
+    color: #89ABE3;
     text-align: center;
     padding-top: 10%;
 }
 
 h2 {
     text-align: center;
-    color: #fff;
+    color: #F5F5F5;
     padding-bottom: 2%;
 }
 
 body {
+    background-color: #151c2d;
     height: 100vh;
     margin: 0;
-    background-color: #333;
-    color: #fff;
-    font-family: Arial, sans-serif;
+    background-image: url('./realistic-luxury-background_23-2149354608.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: #F5F5F5;
+    font-family: "Times New Roman", Times, serif; /* Change this line */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 80%; /* Adjust as needed */
+    margin: 0 auto; /* Center the form */
 }
 
 .main {
@@ -40,9 +54,10 @@ body {
     width: 90%;
     max-width: 800px; /* Adjust as needed */
     padding: 20px;
-    border-radius: 20px;
+    border-radius: 15px;
     box-shadow: 0px 5px 25px rgba(0,0,0,0.2);
-    background-color: #444;
+    background: rgba(55, 58, 60, 0.3); /* Add this line */
+    backdrop-filter: blur(10px); /* Add this line */
     margin: auto;
 }
 
@@ -55,26 +70,28 @@ body {
 
 table {
     width: 100%;
-    border-collapse: collapse;
-    border-radius: 45px;
+ 
+    border-radius: 15px;
     table-layout: fixed; /* Add this line */
 }
 
 
-table, th, td {
-    border: 1px solid #555;
+table{
+
     padding: 10px;
     
 }
 
 th, td {
-    /* Rest of your CSS */
+    border: solid #555;
+    border-radius: 15px;
+    padding: 10px;
     overflow: hidden;
     text-overflow: clip;
 }
 
 th {
-    background-color: #666;
+    background-color: #3D3D3D;
     color: #fff;
 }
 
@@ -100,20 +117,20 @@ button {
     padding: 10px 20px;
     border: none;
     outline: none;
-    background: rgb(0, 119, 255);
+    background: #4e6180;
     color: #FFF;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Times New Roman", Times, serif; /* Change this line */
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 15px;
     transition: all 0.3s ease;
     margin-left: 13px;
     overflow: hidden;
 }
 
 button:hover{
-    background: rgb(0, 17, 255);
+    background: #4e6180;
     transition: all 0.3s ease;
 }
 
@@ -125,23 +142,18 @@ button:hover{
     outline: none;
     background: rgb(0, 119, 255);
     color: #FFF;
-    font-family: 'Arial Rounded MT Bold', Arial, sans-serif; /* Updated this line */
+    font-family: "Times New Roman", Times, serif; /* Change this line */
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 15px;
     transition: all 0.3s ease;
     margin-left: 13px;
     overflow: hidden;
 }
 
 
-form {
-    display: flex;
-    flex-direction: column;
-    width: 80%; /* Adjust as needed */
-    margin: 0 auto; /* Center the form */
-}
+
 
 form label {
     margin-bottom: 5px;
@@ -152,10 +164,11 @@ form input[type="text"], form input[type="tel"], form input[type="number"], form
     margin-bottom: 20px;
     padding: 10px;
     border: 1px solid #555;
-    border-radius: 5px;
-    background-color: #666;
+    border-radius: 15px;
+    background-color: #3D3D3D;
     color: #fff;
     width: 100%;
+    font-size: 18px;
 }
 
 
@@ -165,13 +178,13 @@ form input[type="submit"] {
     padding: 10px 20px;
     border: none;
     outline: none;
-    background: rgb(0, 119, 255);
+    background: #4e6180;
     color: #FFF;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Times New Roman", Times, serif; /* Change this line */
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 15px;
     transition: all 0.3s ease;
 }
 
@@ -183,8 +196,8 @@ form input[type="submit"]:hover {
 form select {
     padding: 10px;
     border: 1px solid #555;
-    border-radius: 5px;
-    background-color: #666;
+    border-radius: 15px;
+    background-color: #3D3D3D;
     box-sizing: border-box;
     width: 75%;
     height: 40px;
@@ -213,7 +226,7 @@ form select:focus {
 }
 
 .codigoInfo {
-    margin-top: 8%;
+    margin-top: 6%;
     text-align: left;
 }
 
@@ -235,17 +248,24 @@ form select:focus {
     padding: 10px 20px;
     border: none;
     outline: none;
-    background: rgb(0, 119, 255);
     color: #FFF;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Times New Roman", Times, serif;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 15px;
     transition: all 0.3s ease;
     width: 95%;
+    
+}
+
+button:hover {
+    background: rgb(0, 17, 255);
+    transition: all 0.3s ease;
 }
 
 .tipo {
     margin-top: 5%;
 }
+
+

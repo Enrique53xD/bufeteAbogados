@@ -341,10 +341,14 @@ async function displayMain() {
       eliminarCell.classList.add('eliminar');
       eliminarCell.textContent = 'X';
       eliminarCell.style.color = 'red';
+      eliminarCell.style.fontWeight = 'bold';
       eliminarCell.addEventListener('click', function () {
-        console.log("clikiao")
-        removeItemFromDatabase(clientesDB, key)
-      });
+        let confirmation = confirm("Estas seguro que quieres eliminar este item?");
+        if (confirmation) {
+            console.log("clikiao")
+            removeItemFromDatabase(clientesDB, key)
+        }
+    });
     };
   });
 
@@ -381,9 +385,12 @@ async function displayMain() {
       eliminarCell.textContent = 'X';
       eliminarCell.style.color = 'red'; // Add this line
       eliminarCell.addEventListener('click', function () {
-        console.log("clikiao")
-        removeItemFromDatabase(procuradorDB, key)
-      });
+        let confirmation = confirm("Estas seguro que quieres eliminar este item?");
+        if (confirmation) {
+            console.log("clikiao")
+            removeItemFromDatabase(procuradorDB, key)
+        }
+    });
 
     };
   });
