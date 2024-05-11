@@ -65,6 +65,7 @@ function nuevoCliente(e) {
 
   document.getElementById('clienteForm').reset();
 
+  window.open("./index.html", "_self")
 }
 
 function saveCliente(nombreCliente, telefonoCliente, nitCliente, direccionCliente) {
@@ -103,6 +104,7 @@ function nuevoProcurador(e) {
 
   document.getElementById('procuradorForm').reset();
 
+  window.open("./index.html", "_self")
 }
 
 function saveProcurador(nombreProcurador, telefonoProcurador, colegiadoProcurador, especializacionProcurador) {
@@ -154,6 +156,7 @@ async function nuevoCaso(e) {
 
   document.getElementById('casoForm').reset();
 
+  window.open("./index.html", "_self")
 }
 
 function populateProcuradoresDropdown() {
@@ -222,8 +225,12 @@ function cantidadCasos() {
   return new Promise((resolve, reject) => {
     casosDB.on('value', function (snapshot) {
       const data = snapshot.val();
-      const keys = Object.keys(data);
-      resolve(keys.length);
+      if (data === null) {
+        resolve(0);
+      } else {
+        const keys = Object.keys(data);
+        resolve(keys.length);
+      }
     });
   })
 }
