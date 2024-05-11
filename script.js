@@ -384,6 +384,7 @@ async function displayMain() {
       eliminarCell.classList.add('eliminar');
       eliminarCell.textContent = 'X';
       eliminarCell.style.color = 'red'; // Add this line
+      eliminarCell.style.cursor = 'pointer'; 
       eliminarCell.addEventListener('click', function () {
         let confirmation = confirm("Estas seguro que quieres eliminar este item?");
         if (confirmation) {
