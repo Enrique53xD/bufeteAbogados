@@ -64,6 +64,6 @@
 
 ## Info
 
-Esta es una página web como proyecto para la universidad hecho por Saúl González y Carlos Ortiz. 🎓
+Esta es una página web como proyecto para la universidad <a href="https://umg.edu.gt">Mariano Gálvez</a>. 🎓
 
 (Pongame nota completa plis, le eché muchas ganas 🥺)
