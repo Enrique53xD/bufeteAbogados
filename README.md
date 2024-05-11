@@ -2,9 +2,9 @@
 
 # El Gato Feliz - Sistema de Gestión para Abogados
 
-
-
 ¡Bienvenido/a al sistema de gestión para abogados "El Gato Feliz"! 😺 Este sistema te permite administrar casos legales, clientes y procuradores de manera eficiente. A continuación, se detallan las principales funcionalidades:
+
+
 
 ## Funcionalidades
 
